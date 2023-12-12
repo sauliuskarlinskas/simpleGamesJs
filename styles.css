@@ -1,0 +1,17 @@
+.container {
+    background-color: crimson;
+    text-align: center;
+}
+
+.bord {
+border: 2px solid black;
+width: 80%;
+height: 500px;
+}
+
+#grid {
+    height: 60px;
+    display: flex;
+    gap: 3px;
+    text-align: center;
+}
