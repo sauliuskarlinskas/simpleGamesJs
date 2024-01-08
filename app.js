@@ -171,7 +171,7 @@ function checkMatch() {
     cardsChosen = []
     cardsChosenIds = []
 
-    if (cardsWon.length == cardArray.length/2) {
+    if (cardsWon.length == cardArray.length / 2) {
         scoreDisplay.textContent = 'You found all maches!'
     }
 }
@@ -185,3 +185,54 @@ function flipCard() {
         setTimeout(checkMatch, 500)
     }
 }
+
+// Wrac-a-mole
+const squares = document.querySelectorAll('.square')
+const mole = document.querySelector('.mole')
+const timeLeft = document.querySelector('#time-left')
+const hits = document.querySelector('#hits')
+
+let wrac = 0
+let hitPosition
+let currentTime = 60
+let timerId = null
+
+function randomSquare() {
+    squares.forEach(square => {
+        square.classList.remove('mole')
+    })
+
+    let randomSquare = squares[Math.floor(Math.random() * 9)]
+    randomSquare.classList.add('mole')
+
+    hitPosition = randomSquare.id
+}
+
+squares.forEach(square => {
+    square.addEventListener('mousedown', () => {
+        if (square.id == hitPosition) {
+        wrac++
+        hits.textContent = wrac
+        hitPosition = null
+         }
+    })
+})
+
+function moveMole() {
+    timerId = setInterval(randomSquare, 700)
+}
+
+moveMole()
+
+function countDown() {
+currentTime--
+timeLeft.textContent = currentTime
+
+if (currentTime ==0) {
+    clearInterval(countDownTimerId)
+    clearInterval(timerId)
+    alert('GAME OVER! You hit ' + wrac + ' faces')
+}
+}
+
+let countDownTimerId = setInterval(countDown, 1000)

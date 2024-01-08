@@ -1,17 +1,28 @@
 .container {
-    background-color: crimson;
+    background-color: rgb(20, 187, 220);
+    text-align: center;
+    align-items: center;
+}
+
+#grid {
+    gap: 3px;
     text-align: center;
 }
 
 .bord {
-border: 2px solid black;
-width: 80%;
-height: 500px;
+    width: 606px;
+    height: 606px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#grid {
-    height: 60px;
-    display: flex;
-    gap: 3px;
-    text-align: center;
+.square {
+    width: 200px;
+    height: 200px;
+    border: solid black 1px;
+}
+
+.mole {
+    background-image: url("images/angry.png");
+    background-size: cover;
 }
